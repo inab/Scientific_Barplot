@@ -36,7 +36,7 @@ Clone the repo to your document root :
 ```
 git clone https://github.com/inab/Scientific_Barplot.git
 ```
-Set within the index.html 'benchmarkingChart_bars' div, the OEB id of the challenge (data-id) and metric (metric-y) you want to visualize:
+Set within the index.html 'benchmarkingChart_bars' div, the OEB id of the dataset (data-id) you want to visualize:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@ Set within the index.html 'benchmarkingChart_bars' div, the OEB id of the challe
     </head>
 
     <body>
-        <div style= "float:left" data-id="OEBX0030000000" class="benchmarkingChart_bars" data-mode="dev" metric_y="OEBM0030000001"></div>
+        <div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-mode="dev"></div>
     </body>
     
 </html>

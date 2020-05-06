@@ -35,16 +35,12 @@ function load_bars_visualization (){
     
     let url = base_url + "sciapi/graphql";
         
-    let json_query = `query getDatasets($challenge_id: String!){
-                        getDatasets(datasetFilters:{challenge_id: $challenge_id, type:"assessment"}) {
+    let json_query = `query getDatasets($dataset_id: String!){
+                        getDatasets(datasetFilters:{id: $dataset_id, type:"aggregation"}) {
                             _id
                             community_ids
                             datalink{
                                 inline_data
-                            }
-                            depends_on{
-                                tool_id
-                                metrics_id
                             }
                         }
                       }`
@@ -63,7 +59,7 @@ function get_data(url, json_query ,dataId, divid, metric_y){
         uri: url,
       });
 
-      let vars = { challenge_id: dataId };
+      let vars = { dataset_id: dataId };
 
       fetch({
         query: json_query,
@@ -85,11 +81,7 @@ function get_data(url, json_query ,dataId, divid, metric_y){
 
           // get the names of the tools that are present in the community
           const fetchData = () => fetch({
-            query: `query getTools($community_id: String!){
-                        getTools(toolFilters:{community_id: $community_id}) {
-                            _id
-                            name
-                        }
+            query: `query getMetrics{
                         getMetrics {
                           _id
                           title
@@ -101,26 +93,22 @@ function get_data(url, json_query ,dataId, divid, metric_y){
 
           fetchData().then(response => { 
             
-            let tool_list = response.data.getTools;
             let metrics_list = response.data.getMetrics;
-            // iterate over the list of tools to generate a dictionary
-            let tool_names = {};
-            tool_list.forEach( function(tool) {
-                tool_names[tool._id] = tool.name
-            
-            });
 
             // iterate over the list of metrics to generate a dictionary
             let metric_name;
+            if (result[0].datalink.inline_data.visualization.metric.startsWith("OEBM") == true){
+              metrics_list.forEach( function(element) {
+                if (element._id == metric_y){
+                  metric_name = element.title
+                } 
+                              
+              });
+            } else {
+              metric_name = result[0].datalink.inline_data.visualization.metric;
+            }
 
-            metrics_list.forEach( function(element) {
-              if (element._id == metric_y){
-                metric_name = element.title
-              } 
-                            
-            });
-            metric_name = "F-Measure"
-            join_all_json(result, divid, tool_names, metric_name);
+            join_all_json(result, divid, metric_name);
 
           });
                               
@@ -134,14 +122,14 @@ function get_data(url, json_query ,dataId, divid, metric_y){
 
 };
 
-function join_all_json(result, divid, tool_names, metric_name){
+function join_all_json(result, divid, metric_name){
 
   var data =[]
-  result.forEach( function(dataset) {
+  result[0].datalink.inline_data.challenge_participants.forEach( function(element) {
 
     data.push({ 
-      "toolname": tool_names[dataset.depends_on.tool_id],
-      "metric_value": parseFloat(dataset.datalink.inline_data.value)
+      "toolname": element.tool_id,
+      "metric_value": element.metric_value
     });
 
   });
