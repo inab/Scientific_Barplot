@@ -151,7 +151,7 @@ function join_all_json(result, divid, tool_names, metric_name){
   metrics_values[divid] = data;
   
   // add plot limits
-  var margin = {top: 40, right: 30, bottom: 120, left: 60},
+  var margin = {top: 40, right: 30, bottom: 180, left: 60},
   width = Math.round($(window).width()* 0.70226) - margin.left - margin.right,
   height = Math.round($(window).height()* 0.8888) - margin.top - margin.bottom;
 

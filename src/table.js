@@ -27,8 +27,6 @@ function fill_in_table (divid, data){
   //create table dinamically
   var table = document.getElementById(divid + "_table");
 
-  // change table display
-  table.style.display = "block"; 
   var row = table.insertRow(-1);
   row.insertCell(0).innerHTML = "<b>TOOL</b>";
   row.insertCell(1).innerHTML = "<b>QUARTILE</b>";

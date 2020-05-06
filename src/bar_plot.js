@@ -50,7 +50,7 @@ export function build_plot(data, divid, width, margin, height, metric_name){
   svg.append("text")             
   .attr("transform",
             "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 80) + ")")
+                           (height + margin.top + 60) + ")")
   .style("text-anchor", "middle")
   .style("font-weight", "bold")
   .style("font-size", ".75vw")

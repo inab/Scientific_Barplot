@@ -72,31 +72,25 @@ export function add_buttons (divid, metric_name, width, margin, height){
 
 function compute_classification( divid, width, margin, height, metric_name){
 
-    var table = document.getElementById(divid + "_table");
-    // every time a new classification is compute the previous results table is deleted (if it exists)
-    if (table != null) {
-      table.innerHTML = '';
-    };
-  
     // delete previous plot and build new one
     d3.select('#'+ divid + '_svg').remove();
-  
-    // check if table is visible; if it is, build plot with unsorted data
-    var style = getComputedStyle(table);
     
-    if ( style.display == "block") {
-  
+    if ($("#" +  divid + "_table").is(':empty')) { // if the table si empty, the classification is applied
+
+        //change the text in the classification button
+        d3.select("#" + divid + "_button").attr("value", "Get Back to Raw Results");
+        sort_and_classify(metrics_values[divid], divid, width, margin, height, metric_name);
+
+    } else { // if not, the table is emptied and the plot is built again
+
+        // first, the previous results table is deleted
+      var table = document.getElementById(divid + "_table");
+      table.innerHTML = '';
+
       //change the text in the classification button
       d3.select("#" + divid + "_button").attr("value", "Sort & Classify Results");
-      // change table display
-      table.style.display = "none"; 
+
       build_plot(metrics_values[divid], divid, width, margin, height, metric_name);
-  
-    } else { // if not, sort the data and build plot with it
-  
-      //change the text in the classification button
-      d3.select("#" + divid + "_button").attr("value", "Get Back to Raw Results");
-      sort_and_classify(metrics_values[divid], divid, width, margin, height, metric_name);
     }
   
   };

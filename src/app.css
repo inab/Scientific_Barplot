@@ -2,19 +2,16 @@
     border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
-    font-size: .7vw;
-    width: 75%;
-    white-space:nowrap;
+    font-size: .8vw;
 }
 
 .benchmarkingTable_bars {
 	order: 2;
-    width: 17vw; 
+    width: 18vw; 
     border-collapse: collapse; 
     background-color: #f0f0f0;
     border: 5px solid black; 
     margin-left: 1vw;
-    display: none;
     /* height: 27.5vh;
     overflow-y: scroll; */
 }
