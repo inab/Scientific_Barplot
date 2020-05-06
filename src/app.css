@@ -8,23 +8,32 @@
 }
 
 .benchmarkingTable_bars {
+	order: 2;
     width: 17vw; 
     border-collapse: collapse; 
     background-color: #f0f0f0;
     border: 5px solid black; 
-    float: right;
+    margin-left: 1vw;
     display: none;
-    height: 70vh;
+    height: 27.5vh;
     overflow-y: scroll;
 }
 
 .benchmarkingSVG{
+  order:1;
   width: 68vw;
 }
 
 .benchmarkingChart_bars{
-    width: 90vw;
+    width: inherit;
 
+}
+
+.flex-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 .bar {
