@@ -90,6 +90,7 @@ export function build_plot(data, divid, width, margin, height, metric_name){
     .data(data)
     .enter().append("rect")
     .attr("class", "bar")
+    .attr("fill", "orange")
     .attr("x", function(d) { return x(d.toolname); })
     .attr("width", x.bandwidth())
     // no bar at the beginning thus:
