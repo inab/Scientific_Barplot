@@ -4,6 +4,9 @@ This [D3 graph](https://d3js.org/) is used to visualize the results of a benchma
 
 ![figure1](./figures/barplot_1.png)
 
+## NPM Package
+NPM Package `@inb/oeb-chart-barplot` published to: https://www.npmjs.com/package/@inb/oeb-chart-barplot
+
 ## Input
 The visualizer uses as input the results of one challenge stored in the OpenEBench database in the format of the official [Benchmarking Data Model](https://github.com/inab/benchmarking-data-model) - [OpenEBench Scientific API](https://openebench.bsc.es/sciapi/) is used to access the database by using the following query:
 ```
