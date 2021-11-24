@@ -94,7 +94,7 @@ export function build_plot(data, divid, width, margin, height, metric_name){
     .attr("x", function(d) { return x(d.toolname); })
     .attr("width", x.bandwidth())
     // no bar at the beginning thus:
-    .attr("height", function(d) { return height - y(0); }) // always equal to 0
+    .attr("height", function(d) { return (height - y(0)) > 0 ? height - y(0) : 0; }) // has to be >= 0
     .attr("y", function(d) { return y(0); })
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)

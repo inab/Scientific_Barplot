@@ -19,10 +19,18 @@ function load_bars_visualization (){
   // append ids to chart/s and make d3 plot
   i = 0
   for(y of charts){
-    // define base url - production or development
+
+    // ********* DEPRECATED ******
+    // Please supply data-api-url parameter
+    // ***************************
+    // define base url - production or development --- DEPCRECATED
     //check for mode by default it is production if no param is given
-    var mode = $(y).data("mode") ? "dev-openebench" : "openebench"
+    var mode = $(y).data("mode") ? $(y).data("mode") : "openebench"
     let base_url = "https://" + mode + ".bsc.es/";
+    // **************************
+        
+    const api_url = $(y).data("api-url")
+    let url = api_url ? api_url : base_url + "sciapi/graphql"; //downward compatibility
 
     // get benchmarking event id
     dataId = y.getAttribute('data-id');
@@ -32,8 +40,6 @@ function load_bars_visualization (){
     //set chart id
     divid = (dataId+i).replace(":","_");
     y.id=divid;
-    
-    let url = base_url + "sciapi/graphql";
         
     let json_query = `query getDatasets($dataset_id: String!){
                         getDatasets(datasetFilters:{id: $dataset_id, type:"aggregation"}) {
@@ -94,6 +100,13 @@ function get_data(url, json_query ,dataId, divid, metric_y){
           fetchData().then(response => { 
             
             let metrics_list = response.data.getMetrics;
+
+            // parsing GraphQL wrapped JSON Object
+            try {
+              result[0].datalink.inline_data = JSON.parse(result[0].datalink.inline_data);
+            } catch (err) {
+                console.warn (err);
+            }          
 
             // iterate over the list of metrics to generate a dictionary
             let metric_name;

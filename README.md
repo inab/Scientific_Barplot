@@ -8,7 +8,14 @@ This [D3 graph](https://d3js.org/) is used to visualize the results of a benchma
 NPM Package `@inb/oeb-chart-barplot` published to: https://www.npmjs.com/package/@inb/oeb-chart-barplot
 
 ## Input
-The visualizer uses as input the results of one challenge stored in the OpenEBench database in the format of the official [Benchmarking Data Model](https://github.com/inab/benchmarking-data-model) - [OpenEBench Scientific API](https://openebench.bsc.es/sciapi/) is used to access the database by using the following query:
+The visualizer uses as input the results of one challenge stored in the OpenEBench database in the format of the official [Benchmarking Data Model](https://github.com/inab/benchmarking-data-model).
+
+Per default it consumes the [OpenEBench Sci-API](https://openebench.bsc.es/sciapi/) (deprecated).
+
+It is also able to consume the new API [OpenEBench API Scientific](https://dev-openebench.bsc.es/api/scientific/). 
+The API can be set by supplying the following attribute: `data-api-url="{{ API_URL }}"`
+
+The API is used to access the database by using the following query:
 ```
 getDatasets(datasetFilters:{challenge_id: $challenge_id, type:"assessment"}) {
                             _id
@@ -52,7 +59,7 @@ Set within the index.html 'benchmarkingChart_bars' div, the OEB id of the datase
     </head>
 
     <body>
-        <div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-mode="dev"></div>
+        <div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>
     </body>
     
 </html>
