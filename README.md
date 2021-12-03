@@ -46,7 +46,9 @@ The component can be imported in two way: As npm package (preferred), or via the
 In your frontend component:
 `import { load_bars_visualization } from "@inb/oeb-chart-barplot";`
 
-`<div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>`
+`<div data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>`
+
+You can then call the `load_bars_visualization()` function.
 
 ### Attributes that can be set on the _<div\>_ tag
 
