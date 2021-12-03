@@ -46,7 +46,7 @@ The component can be imported in two way: As npm package (preferred), or via the
 In your frontend component:
 `import { load_bars_visualization } from "@inb/oeb-chart-barplot";`
 
-`<div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>``
+`<div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>`
 
 ### Attributes that can be set on the _<div\>_ tag
 
@@ -55,7 +55,7 @@ In your frontend component:
 -   data-api-url: Should always contain the full API URL e.g. https://openebench.bsc.es/api/scientific/graphql
 
 Example:
-`<div data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>``
+`<div data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>`
 
 
 ### Alternative way: Clone from repository
