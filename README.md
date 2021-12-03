@@ -37,6 +37,29 @@ As other [OpenEBench results visualizers](https://github.com/inab/OpenEBench_sci
 
 ## How to use
 
+The component can be imported in two way: As npm package (preferred), or via the build file from the git repository (see bottom).
+
+### Use the npm package
+
+`npm i @inb/oeb-chart-barplot`
+
+In your frontend component:
+`import { load_bars_visualization } from "@inb/oeb-chart-barplot";`
+
+`<div style= "float:left" data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>``
+
+### Attributes that can be set on the _<div\>_ tag
+
+-   data-id : the official OEB id of the benchmarking challenge you want to visualize
+-   class: should always be *'benchmarkingChart_bars'*
+-   data-api-url: Should always contain the full API URL e.g. https://openebench.bsc.es/api/scientific/graphql
+
+Example:
+`<div data-id="OEBD004000000D" class="benchmarkingChart_bars" data-api-url="{{ API_URL }}"></div>``
+
+
+### Alternative way: Clone from repository
+
 Requirements:
 
 -npm
