@@ -35,6 +35,9 @@ As other [OpenEBench results visualizers](https://github.com/inab/OpenEBench_sci
 
 ![figure2](./figures/barplot_2.png)
 
+## Live Demo
+See a demo of how this visualizer works [here](https://inab.github.io/Scientific_Barplot/)
+
 ## How to use
 
 The component can be imported in two way: As npm package (preferred), or via the build file from the git repository (see bottom).
