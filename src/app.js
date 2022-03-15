@@ -2,20 +2,22 @@ import { add_buttons } from "./chart_buttons"
 import './app.css';
 import { build_plot } from "./bar_plot"
 import { createApolloFetch } from 'apollo-fetch';
-
-
+import * as d3 from "d3";
+import * as JQuery from "jquery";
+const $ = JQuery.default;
+window.d3 = d3;
 
 var metrics_values={};
 
 function load_bars_visualization (){ 
 
   let charts = document.getElementsByClassName("benchmarkingChart_bars");
-  
+
   let i = 0;
   let dataId;
   let y;
   let divid;
-  
+
   // append ids to chart/s and make d3 plot
   i = 0
   for(y of charts){
@@ -28,7 +30,7 @@ function load_bars_visualization (){
     var mode = $(y).data("mode") ? $(y).data("mode") : "openebench"
     let base_url = "https://" + mode + ".bsc.es/";
     // **************************
-        
+
     const api_url = $(y).data("api-url")
     let url = api_url ? api_url : base_url + "sciapi/graphql"; //downward compatibility
 

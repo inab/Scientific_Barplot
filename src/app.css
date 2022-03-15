@@ -18,12 +18,11 @@
 
 .benchmarkingSVG{
   order:1;
-  width: 68vw;
+  width: 100% !important;
 }
 
 .benchmarkingChart_bars{
     width: inherit;
-
 }
 
 .flex-container {
@@ -31,6 +30,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	margin-top: 15px;
 }
 
 .bar:hover {
@@ -102,6 +102,7 @@
 	font-size: 1vw;
 	text-align: center;
 	width: 10vw;
+	cursor: pointer;
   }
 
   .download_div {

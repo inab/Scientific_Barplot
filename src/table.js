@@ -1,7 +1,8 @@
+import * as JQuery from "jquery";
+
+const $ = JQuery.default;
 
 export function transform_classif_to_table(divid, data, quantile_1, quantile_2, quantile_3){
-  
-      
     // split participants according to quartiles
     for (var i = 0; i < data.length; i++) { 
       var participant = data[i];

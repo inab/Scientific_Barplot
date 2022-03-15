@@ -4,6 +4,9 @@ import { metrics_values } from "./app"
 import html2canvas from 'html2canvas'
 import * as jsPDF from 'jspdf'
 import d3_save_svg from 'd3-save-svg';
+import * as JQuery from "jquery";
+
+const $ = JQuery.default;
 
 export function add_buttons (divid, metric_name, width, margin, height){
 
