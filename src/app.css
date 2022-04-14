@@ -1,4 +1,4 @@
-  .benchmarkingTable_bars td {
+.benchmarkingTable_bars td {
     border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
@@ -7,10 +7,10 @@
 
 .benchmarkingTable_bars {
 	order: 2;
-    width: 18vw; 
-    border-collapse: collapse; 
+    width: 18vw;
+    border-collapse: collapse;
     background-color: #f0f0f0;
-    border: 5px solid black; 
+    border: 5px solid black;
     margin-left: 1vw;
     /* height: 27.5vh;
     overflow-y: scroll; */
@@ -73,7 +73,7 @@
 
 .classificator_button {
 	order:1;
-	background-color: #0A58A2; 
+	background-color: #0A58A2;
 	border-radius: 8px;
 	color: #fff;
 	font-size: 1vw;
