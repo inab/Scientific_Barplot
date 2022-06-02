@@ -134,9 +134,12 @@ function get_data(url, json_query, dataId, divid, metric_y) {
 
 function join_all_json(result, divid, metric_name) {
   var data = [];
+  let min_y = 0;
   result[0].datalink.inline_data.challenge_participants.forEach(function (
     element
   ) {
+    if (element.metric_value < min_y)
+      min_y = element.metric_value;
     data.push({
       toolname: element.tool_id,
       metric_value: element.metric_value,
@@ -153,7 +156,6 @@ function join_all_json(result, divid, metric_name) {
     height =
       Math.round($(window).height() * 0.8888) - margin.top - margin.bottom;
 
-  var min_y = 0;
   add_buttons(data, divid, width, margin, height, metric_name, min_y);
   build_plot(data, divid, width, margin, height, metric_name, min_y);
 }

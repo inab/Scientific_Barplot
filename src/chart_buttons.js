@@ -16,6 +16,7 @@ export function add_buttons(
   metric_name,
   min_y
 ) {
+  const min_y_default = min_y;
   // add div which will hold all the buttons for user actions
   d3.select("#" + divid)
     .append("div")
@@ -43,7 +44,7 @@ export function add_buttons(
         // default view with y axis starting on 0
         d3.select(this).text("optimal view");
         this.name = "optimal view";
-        min_y = 0;
+        min_y = min_y_default;
       }
       // delete previous plot and build new one (classified or normal)
       d3.select("#" + divid + "_svg").remove();
